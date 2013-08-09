@@ -1,0 +1,10 @@
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\localhost_84\Sdl.Tridion.Context\bin\Debug\Sdl.Tridion.Context.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\localhost_84\Sdl.Tridion.Context\bin\Debug\Sdl.Tridion.Context.pdb
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\localhost_84\Sdl.Tridion.Context\obj\Debug\Sdl.Tridion.Context.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\localhost_84\Sdl.Tridion.Context\obj\Debug\Sdl.Tridion.Context.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\localhost_84\Sdl.Tridion.Context\obj\Debug\Sdl.Tridion.Context.pdb
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\localhost_84\Sdl.Tridion.Context\bin\Debug\Tridion.ContentDelivery.AmbientData.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\localhost_84\Sdl.Tridion.Context\bin\Debug\Tridion.ContentDelivery.Interop.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\localhost_84\Sdl.Tridion.Context\bin\Debug\Tridion.ContentDelivery.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\localhost_84\Sdl.Tridion.Context\bin\Debug\netrtsn.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\localhost_84\Sdl.Tridion.Context\bin\Debug\Tridion.ContentDelivery.Configuration.dll
