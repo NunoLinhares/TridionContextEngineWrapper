@@ -1,42 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Tridion.ContentDelivery.AmbientData;
 
 namespace Sdl.Tridion.Context
 {
-    public class BrowserClaims
+    public class BrowserClaims : ContextClaims
     {
-        private readonly Dictionary<Uri, object> _claims;
 
         public BrowserClaims(Dictionary<Uri, object> claims)
+            : base(claims)
         {
-            _claims = claims;
         }
 
         public BrowserClaims()
         {
-            _claims = (Dictionary<Uri, object>) AmbientDataContext.CurrentClaimStore.GetAll();
         }
 
         public bool CookieSupport
         {
-            get { return Convert.ToBoolean(_claims[ClaimUris.UriCookieSupport].ToString()); }
+            get
+            {
+                // BUG: Returns false on desktop FF, IE, Safari
+                return GetBooleanValue(ClaimUris.UriCookieSupport);
+            }
         }
 
-        public string CssVersion { get { return _claims[ClaimUris.UriCssVersion].ToString(); } }
+        public string CssVersion { get { return GetStringValue(ClaimUris.UriCssVersion); } }
 
-        public int DisplayColorDepth { get { return Convert.ToInt32(_claims[ClaimUris.UriDisplayColorDepth].ToString()); } }
+        public int DisplayColorDepth { get { return GetIntValue(ClaimUris.UriDisplayColorDepth); } }
 
-        public int DisplayHeigth { get { return Convert.ToInt32(_claims[ClaimUris.UriBrowserDisplayHeight].ToString()); } }
+        public int DisplayHeigth { get { return GetIntValue(ClaimUris.UriBrowserDisplayHeight); } }
 
-        public int DisplayWidth { get { return Convert.ToInt32(_claims[ClaimUris.UriBrowserDisplayWidth].ToString()); } }
+        public int DisplayWidth { get { return GetIntValue(ClaimUris.UriBrowserDisplayWidth); } }
 
         public List<string> ImageFormatSupport
         {
             get
             {
-                string x = _claims[ClaimUris.UriImageFormatSupport].ToString();
+                string x = GetStringValue(ClaimUris.UriImageFormatSupport);
                 return x.Split(',').ToList();
             }
         }
@@ -45,41 +46,41 @@ namespace Sdl.Tridion.Context
         {
             get
             {
-                string x = _claims[ClaimUris.UriInputDevices].ToString();
+                string x = GetStringValue(ClaimUris.UriInputDevices);
                 return x.Split(',').ToList();
             }
         }
 
         public string InputModeSupport
         {
-            get { return _claims[ClaimUris.UriInputModeSupport].ToString(); }
+            get { return GetStringValue(ClaimUris.UriInputModeSupport); }
         }
 
-        public string JsVersion { get { return _claims[ClaimUris.UriJsVersion].ToString(); } }
+        public string JsVersion { get { return GetStringValue(ClaimUris.UriJsVersion); } }
 
         public string MarkupSupport
         {
-            get { return _claims[ClaimUris.UriMarkupSupport].ToString(); }
+            get { return GetStringValue(ClaimUris.UriMarkupSupport); }
         }
         public string Model
         {
-            get { return _claims[ClaimUris.UriBrowserModel].ToString(); }
+            get { return GetStringValue(ClaimUris.UriBrowserModel); }
         }
 
-        public string PreferredHtmlContentType { get { return _claims[ClaimUris.UriPreferredHtmlContentType].ToString(); } }
+        public string PreferredHtmlContentType { get { return GetStringValue(ClaimUris.UriPreferredHtmlContentType); } }
 
-        public string ScriptSupport { get { return _claims[ClaimUris.UriScriptSupport].ToString(); } }
+        public string ScriptSupport { get { return GetStringValue(ClaimUris.UriScriptSupport); } }
 
         public List<string> StylesheetSupport
         {
-            get { return _claims[ClaimUris.UriStylesheetSupport].ToString().Split(',').ToList(); }
+            get { return GetStringValue(ClaimUris.UriStylesheetSupport).Split(',').ToList(); }
         }
 
-        public string Variant { get { return _claims[ClaimUris.UriBrowserVariant].ToString(); } }
+        public string Variant { get { return GetStringValue(ClaimUris.UriBrowserVariant); } }
 
-        public string Vendor { get { return _claims[ClaimUris.UriBrowserVendor].ToString(); } }
+        public string Vendor { get { return GetStringValue(ClaimUris.UriBrowserVendor); } }
 
-        public string Version { get { return _claims[ClaimUris.UriBrowserVersion].ToString(); } }
+        public string Version { get { return GetStringValue(ClaimUris.UriBrowserVersion); } }
 
 
     }

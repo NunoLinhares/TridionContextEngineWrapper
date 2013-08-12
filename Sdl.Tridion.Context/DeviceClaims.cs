@@ -1,40 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using Tridion.ContentDelivery.AmbientData;
 
 namespace Sdl.Tridion.Context
 {
-    public class DeviceClaims
+    public class DeviceClaims : ContextClaims
     {
-        private readonly Dictionary<Uri, object> _claims;
-        public DeviceClaims(Dictionary<Uri, object> claims)
+        
+        public DeviceClaims(Dictionary<Uri, object> claims) : base(claims)
         {
-            _claims = claims;
         }
 
         public DeviceClaims()
         {
-            _claims = (Dictionary<Uri, object>)AmbientDataContext.CurrentClaimStore.GetAll();
         }
 
-        public int DisplayHeight { get { return Convert.ToInt32(_claims[ClaimUris.UriDeviceDisplayHeight].ToString()); } }
-        public int DisplayWidth { get { return Convert.ToInt32(_claims[ClaimUris.UriDeviceDisplayWidth].ToString()); } }
-        public bool IsMobile { get { return Convert.ToBoolean(_claims[ClaimUris.UriMobile].ToString()); } }
-        public string Model { get { return _claims[ClaimUris.UriDeviceModel].ToString(); } }
+        public int DisplayHeight { get { return GetIntValue(ClaimUris.UriDeviceDisplayHeight); } }
+        public int DisplayWidth { get { return GetIntValue(ClaimUris.UriDeviceDisplayWidth); } }
+        public bool IsMobile { get { return GetBooleanValue(ClaimUris.UriMobile); } }
+        public string Model { get { return GetStringValue(ClaimUris.UriDeviceModel); } }
         public int PixelDensity
         {
-            get { return Convert.ToInt32(_claims[ClaimUris.UriPixelDensity].ToString()); }
+            get { return GetIntValue(ClaimUris.UriPixelDensity); }
         }
 
         public int PixelRatio
         {
-            get { return Convert.ToInt32(_claims[ClaimUris.UriPixelRatio].ToString()); }
+            get { return GetIntValue(ClaimUris.UriPixelRatio); }
         }
-        public bool IsRobot { get { return Convert.ToBoolean(_claims[ClaimUris.UriRobot].ToString()); } }
-        public bool IsTablet { get { return Convert.ToBoolean(_claims[ClaimUris.UriTablet].ToString()); } }
-        public string Variant { get { return _claims[ClaimUris.UriDeviceVariant].ToString(); } }
-        public string Vendor { get { return _claims[ClaimUris.UriDeviceVendor].ToString(); } }
-        public string Version { get { return _claims[ClaimUris.UriDeviceVendor].ToString(); } }
+        public bool IsRobot { get { return GetBooleanValue(ClaimUris.UriRobot); } }
+        public bool IsTablet { get { return GetBooleanValue(ClaimUris.UriTablet); } }
+        public string Variant { get { return GetStringValue(ClaimUris.UriDeviceVariant); } }
+        public string Vendor { get { return GetStringValue(ClaimUris.UriDeviceVendor); } }
+        public string Version { get { return GetStringValue(ClaimUris.UriDeviceVendor); } }
 
     }
 }
