@@ -4,16 +4,16 @@ using Tridion.ContentDelivery.AmbientData;
 
 namespace Sdl.Tridion.Context
 {
-    public class ContextClaims
+    public abstract class ContextClaims
     {
         private readonly Dictionary<Uri, object> _claims;
 
-        public ContextClaims(Dictionary<Uri, object> claims)
+        protected ContextClaims(Dictionary<Uri, object> claims)
         {
             _claims = claims;
         }
 
-        public ContextClaims()
+        protected ContextClaims()
         {
             _claims = (Dictionary<Uri, object>)AmbientDataContext.CurrentClaimStore.GetAll();
         }
