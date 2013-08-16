@@ -6,10 +6,12 @@ import java.util.Map;
 public class DeviceClaims extends ContextClaims {
 	public DeviceClaims(Map<URI, Object> claims) {
 		super(claims);
+		tafContext = "taf:claim:context:device:";
 	}
 
 	public DeviceClaims() {
 		super();
+		tafContext = "taf:claim:context:device:";
 	}
 
 	public int getDisplayHeight() {

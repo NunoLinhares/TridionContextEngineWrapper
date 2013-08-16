@@ -7,10 +7,12 @@ public class BrowserClaims extends ContextClaims {
 
 	public BrowserClaims(Map<URI, Object> claims) {
 		super(claims);
+		tafContext = "taf:claim:context:browser:";
 	}
 
 	public BrowserClaims() {
 		super();
+		tafContext = "taf:claim:context:browser:";
 	}
 
 	public boolean hasCookieSupport() {
