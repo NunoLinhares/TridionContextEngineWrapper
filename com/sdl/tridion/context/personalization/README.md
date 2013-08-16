@@ -14,7 +14,10 @@ Add the following to your cd_ambient_conf.xml:
 &lt;Cartridge File="c2c.xml" /&gt;
 Enjoy.
 
-The cartridge will remain the URIs as follows:
+The cartridge will rename the URIs as follows:
+
 taf:claim:context:device:mobile -> device.mobile
+
 taf:claim:context:browser:cssVersion -> browser.cssVersion
+
 etc.
