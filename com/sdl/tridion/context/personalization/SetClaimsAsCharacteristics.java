@@ -58,7 +58,7 @@ public class SetClaimsAsCharacteristics extends AbstractClaimProcessor {
 
 	}
 
-	public Presentation getPresentation() {
+	private Presentation getPresentation() {
 		if (presentation == null) {
 			if(getContext() == null)
 				log.info("Could not determine context, is this a valid Tridion Page?");
