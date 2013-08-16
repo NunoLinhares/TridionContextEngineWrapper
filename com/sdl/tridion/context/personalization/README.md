@@ -11,7 +11,7 @@ USAGE
 
 Get the code (.java) and the .xml packaged into a jar file somehow (choose your poison) and add it to the classpath of your web application (/WEB-INF/lib or /bin/lib).
 Add the following to your cd_ambient_conf.xml:
-<Cartridge File="c2c.xml" />
+&lt;Cartridge File="c2c.xml" /&gt;
 Enjoy.
 
 The cartridge will remain the URIs as follows:
