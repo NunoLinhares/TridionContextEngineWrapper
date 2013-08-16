@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CartridgeDefinition Version="6.0"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:noNamespaceSchemaLocation="schemas/cd_ambient_cartridge_conf.xsd"
+                     Uri="taf:custom" Description="Personalization cartridge">
+    <ClaimDefinitions>
+    </ClaimDefinitions>
+
+    <ClaimProcessorDefinitions>
+        <ClaimProcessorDefinition Uri="taf:custom:personalization"
+              ImplementationClass="com.sdl.tridion.context.personalization.SetClaimsAsCharacteristics"/>
+    </ClaimProcessorDefinitions>
+</CartridgeDefinition>
