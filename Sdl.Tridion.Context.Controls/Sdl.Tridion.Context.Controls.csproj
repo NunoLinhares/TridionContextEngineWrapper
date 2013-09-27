@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0EB67333-D2B5-4316-B64D-88AD06D5FBBD}</ProjectGuid>
+    <ProjectGuid>{7AC16812-9D45-483B-B15C-3C3D262C8888}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sdl.Tridion.Context</RootNamespace>
-    <AssemblyName>Sdl.Tridion.Context</AssemblyName>
+    <RootNamespace>Sdl.Tridion.Context.Controls</RootNamespace>
+    <AssemblyName>Sdl.Tridion.Context.Controls</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Nonshipping>true</Nonshipping>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,30 +33,23 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Tridion.ContentDelivery.AmbientData, Version=7.0.0.322, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\inetpub\CEC\Bin\Tridion.ContentDelivery.AmbientData.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContextClaims.cs" />
-    <Compile Include="ClaimUris.cs" />
-    <Compile Include="ContextEngine.cs" />
-    <Compile Include="BrowserClaims.cs" />
-    <Compile Include="DeviceClaims.cs" />
-    <Compile Include="OsClaims.cs" />
+    <Compile Include="DeviceFamily.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Families.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
+    <ProjectReference Include="..\Sdl.Tridion.Context\Sdl.Tridion.Context.csproj">
+      <Project>{0eb67333-d2b5-4316-b64d-88ad06d5fbbd}</Project>
+      <Name>Sdl.Tridion.Context</Name>
+    </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
