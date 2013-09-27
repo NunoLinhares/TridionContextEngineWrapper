@@ -47,7 +47,8 @@ or
 if(context.Device.IsMobile)
 ```
 
-**Using the ASP.NET Family control**
+**Using the ASP.NET Family control** 
+
 The Family control
 ```
 <context:Family Name="smartphone">
@@ -61,7 +62,7 @@ The Family control
 </context:Family>
 ```
 
-Configuring Device Family conditions
+Configuring Device Family conditions 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
