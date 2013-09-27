@@ -11,19 +11,17 @@ namespace Sdl.Tridion.Context
         private readonly BrowserClaims _browser;
         private readonly DeviceClaims _device;
         private readonly OsClaims _os;
-        private Dictionary<Uri, object> _claims;
 
         public ContextEngine(Dictionary<Uri, object> claims)
         {
             _browser = new BrowserClaims(claims);
             _device = new DeviceClaims(claims);
             _os = new OsClaims(claims);
-            _claims = claims;
         }
 
         public ContextEngine()
         {
-            Dictionary<Uri, object> claims = (Dictionary<Uri, object>) AmbientDataContext.CurrentClaimStore.GetAll();
+            Dictionary<Uri, object> claims = (Dictionary<Uri, object>)AmbientDataContext.CurrentClaimStore.GetAll();
             _browser = new BrowserClaims(claims);
             _device = new DeviceClaims(claims);
             _os = new OsClaims(claims);
@@ -52,38 +50,46 @@ namespace Sdl.Tridion.Context
             // YUCK
 
             if (_deviceFamily != null) return _deviceFamily;
-
-            if (File.Exists("Families.xml"))
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bin", "Families.xml");
+            if (File.Exists(path))
             {
-                XDocument families = XDocument.Load("Families.xml");
+                XDocument families = XDocument.Load(path);
                 foreach (var i in families.Descendants("devicefamily"))
                 {
                     string family = i.Attribute("name").Value;
+                    bool inFamily = true;
                     foreach (var c in i.Descendants("condition"))
                     {
                         Uri uri = new Uri(c.Attribute("uri").Value);
                         string expectedValue = c.Attribute("value").Value;
-                        if (expectedValue.StartsWith("&"))
+
+                        if (expectedValue.StartsWith("<"))
                         {
-                            if (expectedValue.StartsWith("&lt;"))
-                            {
-                                int value = Convert.ToInt32(expectedValue.Replace("&lt;", ""));
-                                int claimValue = Convert.ToInt32(AmbientDataContext.CurrentClaimStore.Get<string>(uri));
-                                if (claimValue > value)
-                                    break;
-                            }
-                            if (expectedValue.StartsWith("&gt;"))
-                            {
-                                int value = Convert.ToInt32(expectedValue.Replace("&gt;", ""));
-                                int claimValue = Convert.ToInt32(AmbientDataContext.CurrentClaimStore.Get<string>(uri));
-                                if (claimValue < value)
-                                    break;
-                            }
+                            int value = Convert.ToInt32(expectedValue.Replace("<", ""));
+                            int claimValue = Convert.ToInt32(AmbientDataContext.CurrentClaimStore.Get<string>(uri));
+                            if (claimValue >= value)
+                                inFamily = false;
                         }
-                        if (!AmbientDataContext.CurrentClaimStore.Get<string>(uri).Equals(expectedValue))
-                            break; // move on to next family
-                        _deviceFamily = family;
+                        else if (expectedValue.StartsWith(">"))
+                        {
+                            int value = Convert.ToInt32(expectedValue.Replace(">", ""));
+                            int claimValue = Convert.ToInt32(AmbientDataContext.CurrentClaimStore.Get<string>(uri));
+                            if (claimValue <= value)
+                                inFamily = false;
+                        }
+                        else
+                        {
+                            string stringClaimValue = AmbientDataContext.CurrentClaimStore.Get<string>(uri);
+                            if (!stringClaimValue.Equals(expectedValue))
+                                inFamily = false; // move on to next family
+                        }
                     }
+                    if (inFamily)
+                    {
+                        _deviceFamily = family;
+                        break;
+                    }
+                    // Need to evaluate if all conditions are true.
                 }
             }
             else

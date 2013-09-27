@@ -8,3 +8,4 @@ C:\Users\Administrator\Documents\GitHub\TridionContextEngine\Sdl.Tridion.Context
 C:\Users\Administrator\Documents\GitHub\TridionContextEngine\Sdl.Tridion.Context\obj\Debug\Sdl.Tridion.Context.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\TridionContextEngine\Sdl.Tridion.Context\obj\Debug\Sdl.Tridion.Context.dll
 C:\Users\Administrator\Documents\GitHub\TridionContextEngine\Sdl.Tridion.Context\obj\Debug\Sdl.Tridion.Context.pdb
+C:\Users\Administrator\Documents\GitHub\TridionContextEngine\Sdl.Tridion.Context\bin\Debug\Families.xml
