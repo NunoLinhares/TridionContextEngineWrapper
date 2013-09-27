@@ -50,6 +50,8 @@ namespace Sdl.Tridion.Context
             // YUCK
 
             if (_deviceFamily != null) return _deviceFamily;
+
+            // Could use: string path = VirtualPathUtility.ToAbsolute("~/App_Data/somedata.xml");
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bin", "Families.xml");
             if (File.Exists(path))
             {

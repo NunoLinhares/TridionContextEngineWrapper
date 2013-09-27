@@ -15,7 +15,14 @@ namespace Sdl.Tridion.Context
 
         protected ContextClaims()
         {
-            _claims = (Dictionary<Uri, object>)AmbientDataContext.CurrentClaimStore.GetAll();
+            if(AmbientDataContext.CurrentClaimStore != null)
+            {
+                _claims = (Dictionary<Uri, object>)AmbientDataContext.CurrentClaimStore.GetAll();
+            }
+            else
+            {
+                _claims = new Dictionary<Uri, object>();
+            }
         }
 
         protected internal bool GetBooleanValue(Uri claimUri)
