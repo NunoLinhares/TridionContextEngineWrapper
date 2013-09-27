@@ -1,7 +1,9 @@
 TridionContextEngine
 ====================
 
-A library to use with SDL's Tridion Context Engine Cartridge. Exposes claims as strongly-typed properties of Device, Browser and Os
+A C# and Java library to use with SDL's Tridion Context Engine Cartridge. Exposes claims as strongly-typed properties of Device, Browser and Os
+
+Also has a ASP.NET web control that can display different markup for Device Families
 
 IMPORTANT
 =========
@@ -14,8 +16,9 @@ This library is basically a wrapper around the ADF claims, allowing you to use s
 USAGE
 =====
 
-In a code-behind block (or razor view or whatever):
+In a code-behind block (or Razor view or whatever):
 
+```
 using Sdl.Tridion.Context;
 
 [...]
@@ -23,16 +26,21 @@ using Sdl.Tridion.Context;
 ContextEngine context = new ContextEngine();
 if(context.Browser.DisplayWidth < 320)
    // show small navigation (for instance)
+```
 
 or 
+
+```
 if(context.Device.PixelRatio == 2)
   // Show a retina-display ready image
-  
-  
+```  
 or
+```
 if(context.Device.IsTablet)
+```
 or
+```
 if(context.Device.IsMobile)
-etc
+```
 
 Have fun
