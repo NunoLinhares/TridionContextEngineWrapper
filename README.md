@@ -5,7 +5,7 @@ To do Mobile in SDL Tridion you can use this library along with the Context Engi
 
 A C# and Java library to use with SDL's Tridion Context Engine Cartridge. Exposes claims as strongly-typed properties of Device, Browser and Operating System
 
-Also has ASP.NET web controls that can display different markup for Device Families which are configurable in the Device XML.
+Also has ASP.NET web controls that can display different markup for Device Families which are configurable in the Families XML file.
 
 Important
 =========
