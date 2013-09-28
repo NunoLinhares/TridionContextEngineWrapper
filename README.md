@@ -22,66 +22,85 @@ How to use
 
 In a code-behind block (or Razor view or whatever):
 
-```
-using Sdl.Tridion.Context;
+
+    using Sdl.Tridion.Context;
 
 [...]
 
-ContextEngine context = new ContextEngine();
-if(context.Browser.DisplayWidth < 320)
-   // show small navigation (for instance)
-```
+    ContextEngine context = new ContextEngine();
+    if(context.Browser.DisplayWidth < 320)
+       // show small navigation (for instance)
 
 or 
 
-```
-if(context.Device.PixelRatio == 2)
-  // Show a retina-display ready image
-```  
+    if(context.Device.PixelRatio == 2)
+      // Show a retina-display ready image
+  
 or
-```
-if(context.Device.IsTablet)
-```
+
+    if(context.Device.IsTablet)
+
 or
-```
-if(context.Device.IsMobile)
-```
+
+    if(context.Device.IsMobile)
+
 
 **Using the ASP.NET Family control** 
 
 The Family control
-```
-<context:Family Name="smartphone">
-   <img src="_images/blah_w220.jpg" srcset="/_images/blah_w440.jpg 2x" />
-</context:Family>
-<context:Family Name="desktop">
-   <img src="_images/blah_w440.jpg" srcset="/_images/blah_w440.jpg 2x" />
-</context:Family>
-<context:Family Name="phone">
-   <img src="_images/blah_w220.jpg" srcset="/_images/blah_w440.jpg 2x" />
-</context:Family>
-```
+
+    <context:Family Name="smartphone">
+       <img src="_images/blah_w220.jpg" srcset="/_images/blah_w440.jpg 2x" />
+    </context:Family>
+    <context:Family Name="desktop">
+       <img src="_images/blah_w440.jpg" srcset="/_images/blah_w440.jpg 2x" />
+    </context:Family>
+    <context:Family Name="phone">
+       <img src="_images/blah_w220.jpg" srcset="/_images/blah_w440.jpg 2x" />
+    </context:Family>
+
 
 Configuring Device Family conditions 
-```
-<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-  <devicefamily name="featurephone">
+
+    <?xml version="1.0" encoding="utf-8" ?>
+    <configuration>
+      <devicefamily name="featurephone">
     <condition uri="taf:claim:context:device:mobile" value="true" />
     <condition uri="taf:claim:context:device:tablet" value="false" />
     <condition uri="taf:claim:context:device:displayWidth" value="&lt;320" />
-  </devicefamily>
-  <devicefamily name="smartphone">
+      </devicefamily>
+      <devicefamily name="smartphone">
     <condition uri="taf:claim:context:device:mobile" value="true"/>
     <condition uri="taf:claim:context:device:tablet" value="false" />
     <condition uri="taf:claim:context:device:displayWidth" value="&gt;319" />
-  </devicefamily>
-  <devicefamily name="tablet">
+      </devicefamily>
+      <devicefamily name="tablet">
     <condition uri="taf:claim:context:device:tablet" value="true" />
-  </devicefamily>
-  <devicefamily name="desktop">
+      </devicefamily>
+      <devicefamily name="desktop">
     <condition uri="taf:claim:context:device:mobile" value="false"/>
     <condition uri="taf:claim:context:device:tablet" value="false" />
-  </devicefamily>
- </configuration>
-```
+      </devicefamily>
+     </configuration>
+    
+
+**Using the ASP.NET MVC Family Html Helper**
+
+    @using Sdl.Tridion.Context.Mvc
+
+    @Html.Tridion(Model).Families(
+    	d => {
+    		d.Bound("smartphone",
+    			@<p>
+    				This is for <strong>smart phones</strong>
+    			</p>
+    		);
+    		d.Bound("desktop", 
+    			@<p>
+    				This is for <strong>desktop</strong>
+	    		</p>
+    		);
+    		d.Default(@<p>This is a default</p>);
+	    }
+    ).Render()
+
