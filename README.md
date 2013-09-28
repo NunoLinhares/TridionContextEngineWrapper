@@ -52,7 +52,7 @@ The Family control
     <context:Family Name="smartphone" runat="server">
        <img src="_images/blah_w220.jpg" srcset="/_images/blah_w440.jpg 2x" />
     </context:Family>
-    <context:Family Name="tablet">
+    <context:Family Name="tablet" runat="server">
        <img src="_images/blah_w440.jpg" srcset="/_images/blah_w880.jpg 2x" />
     </context:Family>
     <context:Family Name="desktop" runat="server">
