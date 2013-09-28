@@ -49,14 +49,14 @@ or
 
 The Family control
 
-    <context:Family Name="smartphone">
+    <context:Family Name="smartphone" runat="server">
        <img src="_images/blah_w220.jpg" srcset="/_images/blah_w440.jpg 2x" />
     </context:Family>
-    <context:Family Name="desktop">
-       <img src="_images/blah_w440.jpg" srcset="/_images/blah_w440.jpg 2x" />
+    <context:Family Name="tablet">
+       <img src="_images/blah_w440.jpg" srcset="/_images/blah_w880.jpg 2x" />
     </context:Family>
-    <context:Family Name="phone">
-       <img src="_images/blah_w220.jpg" srcset="/_images/blah_w440.jpg 2x" />
+    <context:Family Name="desktop" runat="server">
+       <img src="_images/blah_w880.jpg" srcset="/_images/blah_w1760.jpg 2x" />
     </context:Family>
 
 
