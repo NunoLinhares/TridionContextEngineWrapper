@@ -1,3 +1,5 @@
+If you want to contribute and don't know now, check the Roadmap page in the wiki!
+
 Tridion Context Engine Wrapper
 ====================
 
