@@ -68,20 +68,25 @@ namespace Sdl.Tridion.Context
                         if (expectedValue.StartsWith("<"))
                         {
                             int value = Convert.ToInt32(expectedValue.Replace("<", ""));
-                            int claimValue = Convert.ToInt32(AmbientDataContext.CurrentClaimStore.Get<string>(uri));
+                            int claimValue = Convert.ToInt32(GetClaimAsString(uri));
                             if (claimValue >= value)
                                 inFamily = false;
                         }
                         else if (expectedValue.StartsWith(">"))
                         {
                             int value = Convert.ToInt32(expectedValue.Replace(">", ""));
-                            int claimValue = Convert.ToInt32(AmbientDataContext.CurrentClaimStore.Get<string>(uri));
+                            int claimValue = Convert.ToInt32(GetClaimAsString(uri));
                             if (claimValue <= value)
                                 inFamily = false;
                         }
                         else
                         {
-                            string stringClaimValue = AmbientDataContext.CurrentClaimStore.Get<string>(uri);
+                            // 7.1 introduced strongly typed claims
+                            // Must check return types...5
+
+
+
+                            string stringClaimValue = GetClaimAsString(uri);
                             if (!stringClaimValue.Equals(expectedValue))
                                 inFamily = false; // move on to next family
                         }
@@ -107,6 +112,12 @@ namespace Sdl.Tridion.Context
 
             return _deviceFamily;
 
+        }
+
+        private string GetClaimAsString(Uri uri)
+        {
+            object claim = AmbientDataContext.CurrentClaimStore.Get<object>(uri);
+            return claim.ToString();
         }
 
     }

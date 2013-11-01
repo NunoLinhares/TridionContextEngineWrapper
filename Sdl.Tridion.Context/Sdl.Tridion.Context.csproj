@@ -35,8 +35,10 @@
     <Reference Include="System.Web" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Tridion.ContentDelivery.AmbientData">
-      <HintPath>..\lib\Tridion.ContentDelivery.AmbientData.dll</HintPath>
+    <Reference Include="Tridion.ContentDelivery.AmbientData, Version=7.0.0.322, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\inetpub\staging\website\bin\Tridion.ContentDelivery.AmbientData.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>

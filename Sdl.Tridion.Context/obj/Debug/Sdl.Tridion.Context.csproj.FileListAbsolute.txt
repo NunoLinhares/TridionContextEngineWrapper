@@ -16,3 +16,14 @@ C:\Projects\ContextEngineWrapper\TridionContextEngineWrapper\Sdl.Tridion.Context
 C:\Projects\ContextEngineWrapper\TridionContextEngineWrapper\Sdl.Tridion.Context\bin\Debug\Sdl.Tridion.Context.dll
 C:\Projects\ContextEngineWrapper\TridionContextEngineWrapper\Sdl.Tridion.Context\bin\Debug\Sdl.Tridion.Context.pdb
 C:\Projects\ContextEngineWrapper\TridionContextEngineWrapper\Sdl.Tridion.Context\bin\Debug\Tridion.ContentDelivery.AmbientData.dll
+C:\Users\Administrator\Documents\GitHub\TridionContextEngineWrapper\Sdl.Tridion.Context\bin\Debug\Families.xml
+C:\Users\Administrator\Documents\GitHub\TridionContextEngineWrapper\Sdl.Tridion.Context\bin\Debug\Sdl.Tridion.Context.dll
+C:\Users\Administrator\Documents\GitHub\TridionContextEngineWrapper\Sdl.Tridion.Context\bin\Debug\Sdl.Tridion.Context.pdb
+C:\Users\Administrator\Documents\GitHub\TridionContextEngineWrapper\Sdl.Tridion.Context\bin\Debug\Tridion.ContentDelivery.AmbientData.dll
+C:\Users\Administrator\Documents\GitHub\TridionContextEngineWrapper\Sdl.Tridion.Context\obj\Debug\Sdl.Tridion.Context.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\TridionContextEngineWrapper\Sdl.Tridion.Context\obj\Debug\Sdl.Tridion.Context.dll
+C:\Users\Administrator\Documents\GitHub\TridionContextEngineWrapper\Sdl.Tridion.Context\obj\Debug\Sdl.Tridion.Context.pdb
+C:\Users\Administrator\Documents\GitHub\TridionContextEngineWrapper\Sdl.Tridion.Context\bin\Debug\netrtsn.dll
+C:\Users\Administrator\Documents\GitHub\TridionContextEngineWrapper\Sdl.Tridion.Context\bin\Debug\Tridion.ContentDelivery.Interop.dll
+C:\Users\Administrator\Documents\GitHub\TridionContextEngineWrapper\Sdl.Tridion.Context\bin\Debug\Tridion.ContentDelivery.dll
+C:\Users\Administrator\Documents\GitHub\TridionContextEngineWrapper\Sdl.Tridion.Context\bin\Debug\Tridion.ContentDelivery.Configuration.dll
