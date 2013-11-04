@@ -42,7 +42,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContextClaims.cs" />
     <Compile Include="ClaimUris.cs" />
     <Compile Include="ContextEngine.cs" />
     <Compile Include="BrowserClaims.cs" />

@@ -73,10 +73,7 @@ namespace Sdl.Tridion.Context
                         else
                         {
                             // 7.1 introduced strongly typed claims
-                            // Must check return types...5
-
-
-
+                            // Must check return types...
                             string stringClaimValue = GetClaimAsString(uri);
                             if (!stringClaimValue.Equals(expectedValue))
                                 inFamily = false; // move on to next family
