@@ -117,7 +117,7 @@ namespace Sdl.Tridion.Context
         private string GetClaimAsString(Uri uri)
         {
             object claim = AmbientDataContext.CurrentClaimStore.Get<object>(uri);
-            return claim.ToString();
+            return claim.ToString().ToLower();
         }
 
     }

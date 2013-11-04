@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+using Tridion.ContentDelivery.AmbientData;
 
 namespace Sdl.Tridion.Context
 {
-    public class BrowserClaims : ContextClaims
+    public class BrowserClaims
     {
-
-        public BrowserClaims(Dictionary<Uri, object> claims)
-            : base(claims)
-        {
-        }
 
         public BrowserClaims()
         {
@@ -21,24 +15,23 @@ namespace Sdl.Tridion.Context
             get
             {
                 // BUG: Returns false on desktop FF, IE, Safari
-                return GetBooleanValue(ClaimUris.UriCookieSupport);
+                return AmbientDataContext.CurrentClaimStore.Get<bool>(ClaimUris.UriCookieSupport);
             }
         }
 
-        public string CssVersion { get { return GetStringValue(ClaimUris.UriCssVersion); } }
+        public string CssVersion { get { return AmbientDataContext.CurrentClaimStore.Get<string>(ClaimUris.UriCssVersion); } }
 
-        public int DisplayColorDepth { get { return GetIntValue(ClaimUris.UriDisplayColorDepth); } }
+        public int DisplayColorDepth { get { return AmbientDataContext.CurrentClaimStore.Get<int>(ClaimUris.UriDisplayColorDepth); } }
 
-        public int DisplayHeigth { get { return GetIntValue(ClaimUris.UriBrowserDisplayHeight); } }
+        public int DisplayHeigth { get { return AmbientDataContext.CurrentClaimStore.Get<int>(ClaimUris.UriBrowserDisplayHeight); } }
 
-        public int DisplayWidth { get { return GetIntValue(ClaimUris.UriBrowserDisplayWidth); } }
+        public int DisplayWidth { get { return AmbientDataContext.CurrentClaimStore.Get<int>(ClaimUris.UriBrowserDisplayWidth); } }
 
         public List<string> ImageFormatSupport
         {
             get
             {
-                string x = GetStringValue(ClaimUris.UriImageFormatSupport);
-                return x.Split(',').ToList();
+                return AmbientDataContext.CurrentClaimStore.Get<List<string>>(ClaimUris.UriImageFormatSupport);
             }
         }
 
@@ -46,41 +39,40 @@ namespace Sdl.Tridion.Context
         {
             get
             {
-                string x = GetStringValue(ClaimUris.UriInputDevices);
-                return x.Split(',').ToList();
+                return AmbientDataContext.CurrentClaimStore.Get<List<string>>(ClaimUris.UriInputDevices);
             }
         }
 
-        public string InputModeSupport
+        public List<string> InputModeSupport
         {
-            get { return GetStringValue(ClaimUris.UriInputModeSupport); }
+            get { return AmbientDataContext.CurrentClaimStore.Get<List<string>>(ClaimUris.UriInputModeSupport); }
         }
 
-        public string JsVersion { get { return GetStringValue(ClaimUris.UriJsVersion); } }
+        public string JsVersion { get { return AmbientDataContext.CurrentClaimStore.Get<string>(ClaimUris.UriJsVersion); } }
 
-        public string MarkupSupport
+        public List<string> MarkupSupport
         {
-            get { return GetStringValue(ClaimUris.UriMarkupSupport); }
+            get { return AmbientDataContext.CurrentClaimStore.Get<List<string>>(ClaimUris.UriMarkupSupport); }
         }
         public string Model
         {
-            get { return GetStringValue(ClaimUris.UriBrowserModel); }
+            get { return AmbientDataContext.CurrentClaimStore.Get<string>(ClaimUris.UriBrowserModel); }
         }
 
-        public string PreferredHtmlContentType { get { return GetStringValue(ClaimUris.UriPreferredHtmlContentType); } }
+        public string PreferredHtmlContentType { get { return AmbientDataContext.CurrentClaimStore.Get<string>(ClaimUris.UriPreferredHtmlContentType); } }
 
-        public string ScriptSupport { get { return GetStringValue(ClaimUris.UriScriptSupport); } }
+        public List<string> ScriptSupport { get { return AmbientDataContext.CurrentClaimStore.Get<List<string>>(ClaimUris.UriScriptSupport); } }
 
         public List<string> StylesheetSupport
         {
-            get { return GetStringValue(ClaimUris.UriStylesheetSupport).Split(',').ToList(); }
+            get { return AmbientDataContext.CurrentClaimStore.Get<List<string>>(ClaimUris.UriStylesheetSupport); }
         }
 
-        public string Variant { get { return GetStringValue(ClaimUris.UriBrowserVariant); } }
+        public string Variant { get { return AmbientDataContext.CurrentClaimStore.Get<string>(ClaimUris.UriBrowserVariant); } }
 
-        public string Vendor { get { return GetStringValue(ClaimUris.UriBrowserVendor); } }
+        public string Vendor { get { return AmbientDataContext.CurrentClaimStore.Get<string>(ClaimUris.UriBrowserVendor); } }
 
-        public string Version { get { return GetStringValue(ClaimUris.UriBrowserVersion); } }
+        public string Version { get { return AmbientDataContext.CurrentClaimStore.Get<string>(ClaimUris.UriBrowserVersion); } }
 
 
     }

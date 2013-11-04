@@ -29,6 +29,7 @@ namespace Sdl.Tridion.Context
 
         public static Uri UriDeviceDisplayHeight = new Uri(UriDevice + "displayHeight");
         public static Uri UriDeviceDisplayWidth = new Uri(UriDevice + "displayWidth");
+        public static Uri UriDeviceInputDevices = new Uri(UriDevice + "inputDevices");
         public static Uri UriMobile = new Uri(UriDevice + "mobile");
         public static Uri UriDeviceModel = new Uri(UriDevice + "model");
         public static Uri UriPixelDensity = new Uri(UriDevice + "pixelDensity");

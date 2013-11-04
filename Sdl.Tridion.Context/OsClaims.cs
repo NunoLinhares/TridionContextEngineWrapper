@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Tridion.ContentDelivery.AmbientData;
 
 namespace Sdl.Tridion.Context
 {
-    public class OsClaims : ContextClaims
+    public class OsClaims
     {
-        public OsClaims(Dictionary<Uri, object> claims) : base(claims)
-        {
-        }
 
         public OsClaims()
         {
         }
 
-        public string Model { get { return GetStringValue(ClaimUris.UriOsModel); } }
-        public string Variant { get { return GetStringValue(ClaimUris.UriOsVariant); } }
-        public string Vendor { get { return GetStringValue(ClaimUris.UriOsVendor); } }
-        public string Version { get { return GetStringValue(ClaimUris.UriOsVersion); } }
+        public string Model { get { return AmbientDataContext.CurrentClaimStore.Get<string>(ClaimUris.UriOsModel); } }
+        public string Variant { get { return AmbientDataContext.CurrentClaimStore.Get<string>(ClaimUris.UriOsVariant); } }
+        public string Vendor { get { return AmbientDataContext.CurrentClaimStore.Get<string>(ClaimUris.UriOsVendor); } }
+        public string Version { get { return AmbientDataContext.CurrentClaimStore.Get<string>(ClaimUris.UriOsVersion); } }
     }
 }
