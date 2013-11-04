@@ -40,6 +40,9 @@ namespace Sdl.Tridion.Context
 
             // YUCK
 
+            //TODO: Change to use JEXL expression evaluation instead
+            //TODO: Figure out how to use JEXL expression evaluation :)
+
             if (_deviceFamily != null) return _deviceFamily;
 
             // Could use: string path = VirtualPathUtility.ToAbsolute("~/App_Data/somedata.xml");
