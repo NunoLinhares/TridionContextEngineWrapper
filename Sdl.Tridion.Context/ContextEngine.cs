@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using Tridion.ContentDelivery.AmbientData;
 using System.Xml.Linq;
+using Tridion.ContentDelivery.AmbientData;
 
 namespace Sdl.Tridion.Context
 {
@@ -12,19 +11,11 @@ namespace Sdl.Tridion.Context
         private readonly DeviceClaims _device;
         private readonly OsClaims _os;
 
-        public ContextEngine(Dictionary<Uri, object> claims)
-        {
-            _browser = new BrowserClaims(claims);
-            _device = new DeviceClaims(claims);
-            _os = new OsClaims(claims);
-        }
-
         public ContextEngine()
         {
-            Dictionary<Uri, object> claims = (Dictionary<Uri, object>)AmbientDataContext.CurrentClaimStore.GetAll();
-            _browser = new BrowserClaims(claims);
-            _device = new DeviceClaims(claims);
-            _os = new OsClaims(claims);
+            _browser = new BrowserClaims();
+            _device = new DeviceClaims();
+            _os = new OsClaims();
         }
 
         public BrowserClaims Browser { get { return _browser; } }
